@@ -101,6 +101,16 @@ namespace TelemetryLogger
 
             return base.Loop();
         }
+        public static string GetLogDir()
+        {
+            var logPath = Settings.Instance["TelemetryLogDir"];
+
+            if (string.IsNullOrEmpty(logPath))
+            {
+                logPath = GetDefaultLogDir();
+            }
+            return logPath;
+        }
 
         private void OnConnected(object sender, (byte,byte) args)
         {
@@ -139,18 +149,7 @@ namespace TelemetryLogger
             _eventsLogger.Write(log);
         }
 
-        private string GetLogDir()
-        {
-            var logPath = Settings.Instance["TelemetryLogDir"];
-
-            if (string.IsNullOrEmpty(logPath))
-            {
-                logPath = GetDefaultLogDir();
-            }
-            return logPath;
-        }
-
-        private string GetDefaultLogDir()
+        private static string GetDefaultLogDir()
         {
             string directory = Settings.GetUserDataDirectory() + @"logs\TelemetryLogger";
             if (!Directory.Exists(directory))

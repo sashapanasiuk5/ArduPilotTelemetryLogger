@@ -14,7 +14,7 @@ namespace TelemetryLogger
 
         public void Activate()
         {
-            txt_log_dir.Text = Settings.Instance["TelemetryLogDir"];
+            txt_log_dir.Text = TelemetryLoggerPlugin.GetLogDir();
 
             var frequencyParsed = decimal.Parse(Settings.Instance["TelemetryLogFrequency"]);
             frequency.Value = frequencyParsed;
