@@ -140,7 +140,7 @@ timestamp,gps_time,event
 | API / налаштування | Значення |
 |---|---|
 | `TelemetryLogFrequency` | Частота циклу в налаштуваннях Mission Planner; за відсутності значення `Init()` встановлює `1 Hz`. |
-| `TelemetryLogDir` | Тека для логів. Якщо не задана, використовується `Settings.GetUserDataDirectory() + @"logs\TelemetryLogger"`. |
+| `TelemetryLogDir` | Тека для логів. |
 | `TelemetryFileLogger.StartLogging(string logFolderPath)` | Відкриває новий файл із заголовком. |
 | `TelemetryFileLogger.Write(BaseLog log)` | Записує рядок CSV. |
 | `TelemetryFileLogger.DelayedFlush()` | Скидає буфер, коли минуло щонайменше 2 секунди з попереднього скидання. |
